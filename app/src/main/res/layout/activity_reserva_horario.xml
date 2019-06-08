@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ReservaHorarioActivity">
+
+    <CheckBox
+        android:id="@+id/horario1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:text="07:00 - 08:00"
+        app:layout_constraintBottom_toTopOf="@+id/horario2"
+        app:layout_constraintEnd_toStartOf="@+id/horario7"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <CheckBox
+        android:id="@+id/horario2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:text="08:00 - 09:00"
+        app:layout_constraintBottom_toTopOf="@+id/horario3"
+        app:layout_constraintEnd_toStartOf="@+id/horario8"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horario1" />
+
+    <CheckBox
+        android:id="@+id/horario3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:text="09:00 - 10:00"
+        app:layout_constraintBottom_toTopOf="@+id/horario4"
+        app:layout_constraintEnd_toStartOf="@+id/horario9"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horario2" />
+
+    <CheckBox
+        android:id="@+id/horario4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:text="11:00 - 12:00"
+        app:layout_constraintBottom_toTopOf="@+id/horario5"
+        app:layout_constraintEnd_toStartOf="@+id/horario10"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horario3" />
+
+    <CheckBox
+        android:id="@+id/horario5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:text="12:00 - 13:00"
+        app:layout_constraintBottom_toTopOf="@+id/horario6"
+        app:layout_constraintEnd_toStartOf="@+id/horario11"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horario4" />
+
+    <CheckBox
+        android:id="@+id/horario6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:text="13:00 - 14:00"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/horario12"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horario5" />
+
+    <CheckBox
+        android:id="@+id/horario7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:text="14:00 - 15:00"
+        app:layout_constraintBottom_toTopOf="@+id/horario8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/horario1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <CheckBox
+        android:id="@+id/horario8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:text="15:00 - 16:00"
+        app:layout_constraintBottom_toTopOf="@+id/horario9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/horario2"
+        app:layout_constraintTop_toBottomOf="@+id/horario7" />
+
+    <CheckBox
+        android:id="@+id/horario9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:text="16:00 - 17:00"
+        app:layout_constraintBottom_toTopOf="@+id/horario10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/horario3"
+        app:layout_constraintTop_toBottomOf="@+id/horario8" />
+
+    <CheckBox
+        android:id="@+id/horario10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:text="17:00 - 18:00"
+        app:layout_constraintBottom_toTopOf="@+id/horario11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/horario4"
+        app:layout_constraintTop_toBottomOf="@+id/horario9" />
+
+    <CheckBox
+        android:id="@+id/horario11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:text="18:00 - 19:00"
+        app:layout_constraintBottom_toTopOf="@+id/horario12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/horario5"
+        app:layout_constraintTop_toBottomOf="@+id/horario10" />
+
+    <CheckBox
+        android:id="@+id/horario12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="19:00 - 20:00"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/horario6"
+        app:layout_constraintTop_toBottomOf="@+id/horario11"
+        android:padding="4dp" />
+
+</android.support.constraint.ConstraintLayout>
