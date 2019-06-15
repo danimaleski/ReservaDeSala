@@ -116,8 +116,6 @@ public class ReservaHorarioActivity extends AppCompatActivity {
                     horariosSelecionados = horariosSelecionados + "12";
                 }
 
-                horariosSelecionados = horariosSelecionados.replace(", \n", "");
-
                 nomeResponsavel = NomeResp.getText().toString();
 
                 Intent intent = new Intent(ReservaHorarioActivity.this, ReservaConfirmacao.class);

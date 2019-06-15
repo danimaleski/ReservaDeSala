@@ -9,6 +9,7 @@ import android.widget.Button;
 public class ReservaDeSalasActivity extends AppCompatActivity {
 
     Button btnReserva;
+    Button btnCancelar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +17,7 @@ public class ReservaDeSalasActivity extends AppCompatActivity {
         setContentView(R.layout.activity_reserva_de_salas);
 
         btnReserva = findViewById(R.id.btnReservar);
+        btnCancelar = findViewById(R.id.btnCancelar);
 
         btnReserva.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -24,5 +26,14 @@ public class ReservaDeSalasActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        btnCancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ReservaDeSalasActivity.this, ReservaCancelar.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }
