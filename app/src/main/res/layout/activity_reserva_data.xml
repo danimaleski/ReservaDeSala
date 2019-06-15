@@ -38,7 +38,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:checkedButton="@+id/sala1"
+        android:checkedButton="@+id/salaShifu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.16"
@@ -47,21 +47,21 @@
         app:layout_constraintVertical_bias="1.0">
 
         <RadioButton
-            android:id="@+id/sala1"
+            android:id="@+id/salaShifu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="1"
             android:text="Sala Mestre Shifu" />
 
         <RadioButton
-            android:id="@+id/sala2"
+            android:id="@+id/salaPo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="2"
             android:text="Sala Po" />
 
         <RadioButton
-            android:id="@+id/sala3"
+            android:id="@+id/salaOogway"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="3"

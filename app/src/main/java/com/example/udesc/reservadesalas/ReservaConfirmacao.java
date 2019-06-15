@@ -1,8 +1,11 @@
 package com.example.udesc.reservadesalas;
 
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import com.example.udesc.reservadesalas.Services.ReservaService;
 
 import static com.example.udesc.reservadesalas.ReservaDataActivity.DATA_SELECIONADA;
 import static com.example.udesc.reservadesalas.ReservaDataActivity.HORARIO_SELECIONADO;
@@ -11,10 +14,7 @@ import static com.example.udesc.reservadesalas.ReservaDataActivity.NOME_RESPONSA
 
 public class ReservaConfirmacao extends AppCompatActivity {
 
-    TextView txtNome;
-    TextView txtSala;
-    TextView txtData;
-    TextView txtHorario;
+    TextView txtMsgConfirmacao;
 
     String dataSelecionada;
     String horarioSelecionado;
@@ -26,19 +26,45 @@ public class ReservaConfirmacao extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reserva_confirmacao);
 
-        txtNome = findViewById(R.id.txtNome);
-        txtSala = findViewById(R.id.txtSala);
-        txtData  = findViewById(R.id.txtData);
-        txtHorario = findViewById(R.id.txtHorario);
+        txtMsgConfirmacao = findViewById(R.id.txtMsgConfirmacao);
+
+        new PopulateTask().execute();
 
         nomeResp = getIntent().getStringExtra(NOME_RESPONSAVEL);
         salaSelecionada = getIntent().getStringExtra(SALA_SELECIONADA);
         dataSelecionada = getIntent().getStringExtra(DATA_SELECIONADA);
         horarioSelecionado = getIntent().getStringExtra(HORARIO_SELECIONADO);
 
-        txtNome.setText("Nome: " + nomeResp);
-        txtSala.setText("Sala: " + salaSelecionada);
-        txtData.setText("Data: " + dataSelecionada);
-        txtHorario.setText("Horários: " + horarioSelecionado);
+    }
+
+    class PopulateTask extends AsyncTask<Void, Void, Boolean> {
+        //1º: DoInbackground recebe
+        //2º: Não usamos progress
+        //3º: retorno do doInnbackground e onPostExecute recebe
+
+        @Override
+        protected Boolean doInBackground(Void... voids) {
+            ReservaService conecta = new ReservaService();
+            boolean resultado = conecta.addReserva(
+                    "1",
+                    nomeResp,
+                    dataSelecionada,
+                    horarioSelecionado,
+                    salaSelecionada
+            );
+
+            return resultado;
+        }
+
+        @Override
+        protected void onPostExecute(Boolean sucesso) {
+            if (sucesso) {
+                txtMsgConfirmacao.setText("Reserva realizada com sucesso! Seu ID é 1");
+
+            } else {
+                txtMsgConfirmacao.setText("Erro ao realizar a reserva!");
+            }
+
+        }
     }
 }

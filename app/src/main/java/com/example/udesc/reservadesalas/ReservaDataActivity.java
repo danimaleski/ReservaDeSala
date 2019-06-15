@@ -9,8 +9,6 @@ import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.RadioButton;
 
-import java.util.Date;
-
 public class ReservaDataActivity extends AppCompatActivity {
 
     static String DATA_SELECIONADA = "DATA_SELECIONADA";
@@ -20,9 +18,9 @@ public class ReservaDataActivity extends AppCompatActivity {
 
     Button btnDataProximo;
     CalendarView calendarioData;
-    RadioButton sala1;
-    RadioButton sala2;
-    RadioButton sala3;
+    RadioButton salaShifu;
+    RadioButton salaPo;
+    RadioButton salaOogway;
     int teste;
 
     String dataSelecionada;
@@ -36,9 +34,9 @@ public class ReservaDataActivity extends AppCompatActivity {
         btnDataProximo = findViewById(R.id.btnDataProximo);
         calendarioData = findViewById(R.id.calendarioData);
 
-        sala1 = findViewById(R.id.sala1);
-        sala2 = findViewById(R.id.sala2);
-        sala3 = findViewById(R.id.sala3);
+        salaShifu = findViewById(R.id.salaShifu);
+        salaPo = findViewById(R.id.salaPo);
+        salaOogway = findViewById(R.id.salaOogway);
 
         calendarioData.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -52,12 +50,12 @@ public class ReservaDataActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (sala1.isSelected())
-                    salaSelecionada = "1";
-                else if (sala2.isSelected())
-                    salaSelecionada = "2";
+                if (salaShifu.isSelected())
+                    salaSelecionada = salaShifu.getText().toString();
+                else if (salaPo.isSelected())
+                    salaSelecionada = salaPo.getText().toString();
                 else
-                    salaSelecionada = "3";
+                    salaSelecionada = salaOogway.getText().toString();
 
                 Intent intent = new Intent(ReservaDataActivity.this, ReservaHorarioActivity.class);
                 intent.putExtra(DATA_SELECIONADA, dataSelecionada);
