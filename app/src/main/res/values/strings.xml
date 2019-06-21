@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">ReservaDeSalas</string>
+    <string name="app_name">Reserva De Salas</string>
+    <string name="confirma_o_de_reserva">Confirmação de Reserva</string>
 </resources>

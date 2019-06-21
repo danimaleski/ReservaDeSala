@@ -10,24 +10,29 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.udesc.reservadesalas.Services.ReservaService;
+
+import java.util.List;
+
 public class ReservaCancelar extends AppCompatActivity {
 
-    Button btncancelar;
-    EditText txtID;
+    Button btnCancelar;
+    EditText txtCodCancela;
+    boolean resultado = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reserva_cancelar);
 
-        btncancelar = findViewById(R.id.btncancelar);
-        txtID = findViewById(R.id.txtID);
+        btnCancelar = findViewById(R.id.btnCancelar);
+        txtCodCancela = findViewById(R.id.txtCodCancela);
 
-        btncancelar.setOnClickListener(new View.OnClickListener() {
+        btnCancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                openDialog(txtID.getText().toString());
+                openDialog(txtCodCancela.getText().toString());
             }
         });
 
@@ -69,8 +74,17 @@ public class ReservaCancelar extends AppCompatActivity {
 
         @Override
         protected Boolean doInBackground(String... strings) {
+            ReservaService conecta = new ReservaService();
 
-            return true;
+            List<String> listIDsDeleta;
+
+            listIDsDeleta = conecta.getListId(txtCodCancela.getText().toString());
+
+            for (int i = 0; i < listIDsDeleta.size(); i++) {
+                resultado = conecta.deleteReserva(listIDsDeleta.get(i).toString());
+            }
+
+            return resultado;
 
         }
 
