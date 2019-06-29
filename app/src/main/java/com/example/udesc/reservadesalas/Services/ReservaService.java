@@ -1,5 +1,7 @@
 package com.example.udesc.reservadesalas.Services;
 
+import com.example.udesc.reservadesalas.Model.Reservas;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -32,7 +34,8 @@ public class ReservaService {
             String nome,
             String data,
             String horario,
-            String sala
+            String sala,
+            String codcancela
     ) {
         try {
             this.url = new URL(this.fullUrl);
@@ -44,9 +47,10 @@ public class ReservaService {
 
             String jsonInputString = "{\"id\": \"" + id
                     + "\", \"nome\" : \"" + nome
-                    +"\", \"data\" : \"" +  data
+                    + "\", \"data\" : \"" + data
                     + "\",\"horario\" : \"" + horario
                     + "\",\"sala\" : \"" + sala
+                    + "\",\"codcancela\" : \"" + codcancela
                     + "\"}";
 
             try (OutputStream os = this.connection.getOutputStream()) {
@@ -108,6 +112,152 @@ public class ReservaService {
         }
 
         return false;
+    }
+
+    public String getMaxId() {
+
+        StringBuffer content = new StringBuffer();
+
+        try {
+            this.url = new URL(this.fullUrl);
+            this.connection = (HttpURLConnection) this.url.openConnection();
+            BufferedReader in = new BufferedReader(
+                    new InputStreamReader(this.connection.getInputStream()));
+            String inputLine;
+            while ((inputLine = in.readLine()) != null) {
+                content.append(inputLine);
+            }
+            in.close();
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        String maxId = new String();
+        maxId = "0";
+
+        try {
+            JSONArray list = new JSONArray(content.toString());
+
+            for (int i = 0; i < list.length(); i++) {
+                JSONObject reserva = list.getJSONObject(i);
+
+                Reservas m = new Reservas();
+
+                m.setId(reserva.getString("id"));
+
+                if (Integer.parseInt(maxId) < Integer.parseInt(m.getId()))
+                    maxId = m.getId();
+
+                //System.out.println(movie);
+            }
+
+            //System.out.println(content.toString());
+
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+
+        return maxId;
+    }
+
+    public List<String> getListId(String codcancela) {
+
+        StringBuffer content = new StringBuffer();
+
+        try {
+            this.url = new URL(this.fullUrl);
+            this.connection = (HttpURLConnection) this.url.openConnection();
+            BufferedReader in = new BufferedReader(
+                    new InputStreamReader(this.connection.getInputStream()));
+            String inputLine;
+            while ((inputLine = in.readLine()) != null) {
+                content.append(inputLine);
+            }
+            in.close();
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        List<String> listIDs;
+        listIDs = new ArrayList<>();
+
+        try {
+            JSONArray list = new JSONArray(content.toString());
+
+            for (int i = 0; i < list.length(); i++) {
+                JSONObject reserva = list.getJSONObject(i);
+
+                Reservas m = new Reservas();
+
+                m.setId(reserva.getString("id"));
+                m.setcodcancela(reserva.getString("codcancela"));
+
+                if (m.getcodcancela().equals(codcancela))
+                    listIDs.add(m.getId());
+
+            }
+
+            //System.out.println(content.toString());
+
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+
+        return listIDs;
+    }
+
+    public Boolean verificaReserva(String sala, String horario, String data) {
+
+        StringBuffer content = new StringBuffer();
+
+        try {
+            this.url = new URL(this.fullUrl);
+            this.connection = (HttpURLConnection) this.url.openConnection();
+            BufferedReader in = new BufferedReader(
+                    new InputStreamReader(this.connection.getInputStream()));
+            String inputLine;
+            while ((inputLine = in.readLine()) != null) {
+                content.append(inputLine);
+            }
+            in.close();
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            JSONArray list = new JSONArray(content.toString());
+
+            for (int i = 0; i < list.length(); i++) {
+                JSONObject reserva = list.getJSONObject(i);
+
+                Reservas m = new Reservas();
+
+                m.setSala(reserva.getString("sala"));
+                m.setHorario(reserva.getString("horario"));
+                m.setData(reserva.getString("data"));
+
+                //if (m.getcodcancela().equals(codcancela) )
+                if(m.getSala().equals(sala) && m.getHorario().equals(horario) && m.getData().equals(data))
+                    return false;
+
+            }
+
+            //System.out.println(content.toString());
+
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+
+        return true;
     }
 
 }

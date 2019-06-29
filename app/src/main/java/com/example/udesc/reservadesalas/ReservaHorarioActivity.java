@@ -9,6 +9,9 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static com.example.udesc.reservadesalas.ReservaDataActivity.SALA_SELECIONADA;
 import static com.example.udesc.reservadesalas.ReservaDataActivity.DATA_SELECIONADA;
 import static com.example.udesc.reservadesalas.ReservaDataActivity.HORARIO_SELECIONADO;
@@ -22,7 +25,8 @@ public class ReservaHorarioActivity extends AppCompatActivity {
     Button btnConfirmar;
     String dataSelecionada;
     String salaSelecionada;
-    String horariosSelecionados = "";
+    //String horariosSelecionados = "";
+    List<String> horariosSelecionados;
     String nomeResponsavel;
     CheckBox horario1;
     CheckBox horario2;
@@ -41,6 +45,8 @@ public class ReservaHorarioActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reserva_horario);
+
+        horariosSelecionados = new ArrayList<String>();
 
         txtDataSelecionada = findViewById(R.id.txtDataSelecionada);
         NomeResp = findViewById(R.id.NomeResp);
@@ -66,54 +72,55 @@ public class ReservaHorarioActivity extends AppCompatActivity {
         btnConfirmar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if (horario1.isChecked())
                 {
-                    horariosSelecionados = horariosSelecionados + "1, ";
+                    horariosSelecionados.add("1");
                 }
 
                 if (horario2.isChecked())
                 {
-                    horariosSelecionados = horariosSelecionados + "2, ";
+                    horariosSelecionados.add("2");
                 }
                 if (horario3.isChecked())
                 {
-                    horariosSelecionados = horariosSelecionados + "3, ";
+                    horariosSelecionados.add("3");
                 }
                 if (horario4.isChecked())
                 {
-                    horariosSelecionados = horariosSelecionados + "4, ";
+                    horariosSelecionados.add("4");
                 }
                 if (horario5.isChecked())
                 {
-                    horariosSelecionados = horariosSelecionados + "5, ";
+                    horariosSelecionados.add("5");
                 }
                 if (horario6.isChecked())
                 {
-                    horariosSelecionados = horariosSelecionados + "6, ";
+                    horariosSelecionados.add("6");
                 }
                 if (horario7.isChecked())
                 {
-                    horariosSelecionados = horariosSelecionados + "7, ";
+                    horariosSelecionados.add("7");
                 }
                 if (horario8.isChecked())
                 {
-                    horariosSelecionados = horariosSelecionados + "8, ";
+                    horariosSelecionados.add("8");
                 }
                 if (horario9.isChecked())
                 {
-                    horariosSelecionados = horariosSelecionados + "9, ";
+                    horariosSelecionados.add("9");
                 }
                 if (horario10.isChecked())
                 {
-                    horariosSelecionados = horariosSelecionados + "10, ";
+                    horariosSelecionados.add("10");
                 }
                 if (horario11.isChecked())
                 {
-                    horariosSelecionados = horariosSelecionados + "11, ";
+                    horariosSelecionados.add("11");
                 }
                 if (horario12.isChecked())
                 {
-                    horariosSelecionados = horariosSelecionados + "12";
+                    horariosSelecionados.add("12");
                 }
 
                 nomeResponsavel = NomeResp.getText().toString();
@@ -122,7 +129,7 @@ public class ReservaHorarioActivity extends AppCompatActivity {
 
                 intent.putExtra(DATA_SELECIONADA, dataSelecionada);
                 intent.putExtra(SALA_SELECIONADA, salaSelecionada);
-                intent.putExtra(HORARIO_SELECIONADO, horariosSelecionados);
+                intent.putStringArrayListExtra(HORARIO_SELECIONADO, (ArrayList<String>) horariosSelecionados);
                 intent.putExtra(NOME_RESPONSAVEL, nomeResponsavel);
 
                 startActivity(intent);

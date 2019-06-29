@@ -7,41 +7,45 @@
     tools:context=".ReservaConfirmacao">
 
     <TextView
-        android:id="@+id/txtDadosRecebidos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
+        android:id="@+id/txtMsgConfirmacao"
+        android:layout_width="300sp"
+        android:layout_height="300sp"
         android:layout_marginTop="8dp"
-        android:text="Dados Recebidos"
-        android:textColor="@color/colorPrimary"
-        android:textColorLink="@color/colorAccent"
-        android:textSize="24sp"
+        android:layout_marginBottom="8dp"
+        android:background="#ffffff"
+        android:paddingTop="50sp"
+        android:paddingBottom="50sp"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.055" />
+        app:layout_constraintVertical_bias="0.228" />
 
-    <TextView
-        android:id="@+id/txtMsgConfirmacao"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
+    <Button
+        android:id="@+id/btnNovaReserva"
+        android:layout_width="184dp"
+        android:layout_height="61dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:textColor="@color/colorPrimary"
-        android:textSize="30sp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/colorAccent"
+        android:padding="10sp"
+        android:text="Início"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.349" />
+        app:layout_constraintVertical_bias="0.868" />
 
 </android.support.constraint.ConstraintLayout>
