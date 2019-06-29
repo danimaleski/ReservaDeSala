@@ -72,55 +72,6 @@ public class ReservaHorarioActivity extends AppCompatActivity {
         btnConfirmar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*if (horario1.isChecked())
-                {
-                    horariosSelecionados = horariosSelecionados + "1, ";
-                }
-
-                if (horario2.isChecked())
-                {
-                    horariosSelecionados = horariosSelecionados + "2, ";
-                }
-                if (horario3.isChecked())
-                {
-                    horariosSelecionados = horariosSelecionados + "3, ";
-                }
-                if (horario4.isChecked())
-                {
-                    horariosSelecionados = horariosSelecionados + "4, ";
-                }
-                if (horario5.isChecked())
-                {
-                    horariosSelecionados = horariosSelecionados + "5, ";
-                }
-                if (horario6.isChecked())
-                {
-                    horariosSelecionados = horariosSelecionados + "6, ";
-                }
-                if (horario7.isChecked())
-                {
-                    horariosSelecionados = horariosSelecionados + "7, ";
-                }
-                if (horario8.isChecked())
-                {
-                    horariosSelecionados = horariosSelecionados + "8, ";
-                }
-                if (horario9.isChecked())
-                {
-                    horariosSelecionados = horariosSelecionados + "9, ";
-                }
-                if (horario10.isChecked())
-                {
-                    horariosSelecionados = horariosSelecionados + "10, ";
-                }
-                if (horario11.isChecked())
-                {
-                    horariosSelecionados = horariosSelecionados + "11, ";
-                }
-                if (horario12.isChecked())
-                {
-                    horariosSelecionados = horariosSelecionados + "12";
-                }*/
 
                 if (horario1.isChecked())
                 {

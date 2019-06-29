@@ -212,5 +212,52 @@ public class ReservaService {
         return listIDs;
     }
 
+    public Boolean verificaReserva(String sala, String horario, String data) {
+
+        StringBuffer content = new StringBuffer();
+
+        try {
+            this.url = new URL(this.fullUrl);
+            this.connection = (HttpURLConnection) this.url.openConnection();
+            BufferedReader in = new BufferedReader(
+                    new InputStreamReader(this.connection.getInputStream()));
+            String inputLine;
+            while ((inputLine = in.readLine()) != null) {
+                content.append(inputLine);
+            }
+            in.close();
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            JSONArray list = new JSONArray(content.toString());
+
+            for (int i = 0; i < list.length(); i++) {
+                JSONObject reserva = list.getJSONObject(i);
+
+                Reservas m = new Reservas();
+
+                m.setSala(reserva.getString("sala"));
+                m.setHorario(reserva.getString("horario"));
+                m.setData(reserva.getString("data"));
+
+                //if (m.getcodcancela().equals(codcancela) )
+                if(m.getSala().equals(sala) && m.getHorario().equals(horario) && m.getData().equals(data))
+                    return false;
+
+            }
+
+            //System.out.println(content.toString());
+
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+
+        return true;
+    }
 
 }

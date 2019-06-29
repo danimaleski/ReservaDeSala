@@ -91,6 +91,15 @@ public class ReservaConfirmacao extends AppCompatActivity {
 
             for (int i = 0; i < horarioSelecionado.size(); i++) {
 
+                if (conecta.verificaReserva(salaSelecionada, horarioSelecionado.get(i).toString(), dataSelecionada) == false)
+                {
+                    return false;
+                }
+
+            }
+
+            for (int i = 0; i < horarioSelecionado.size(); i++) {
+
                 resultado = conecta.addReserva(
                         idAux,
                         nomeResp,
@@ -116,7 +125,7 @@ public class ReservaConfirmacao extends AppCompatActivity {
                 txtMsgConfirmacao.setText("Reserva realizada com sucesso!\n\nCódigo da Reserva: " + maxId + "-" + horarioSelecionado.get(0));
 
             } else {
-                txtMsgConfirmacao.setText("Erro ao realizar a reserva!");
+                txtMsgConfirmacao.setText("Já existe reserva para a sala, data e horário selecionados!");
             }
 
         }
